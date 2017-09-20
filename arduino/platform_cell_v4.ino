@@ -15,7 +15,7 @@ boolean pos_1 = false; // cuando pongamos un reset de inicio la pondremos a fals
 boolean pos_2 = false;
 boolean pos_3 = false;
 
-boolean primer_arranque = true;
+boolean primer_arranque = true; // para controlar cada vez que se encienda ir al home
 
 int final_carrera_1 = 1;
 int final_carrera_2 = 1;
