@@ -95,6 +95,7 @@ class Example(QMainWindow):
         try:
             if sender.text() == "Conectar":
                 ser.open()
+                ex.label_1.setText("Conectado, elige laposición")
                 ex.con_serie.setText("Desconectar")
                 ex.led1.setEnabled(True)
                 ex.led2.setEnabled(True)
