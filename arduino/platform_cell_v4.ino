@@ -7,7 +7,7 @@
 
 const int steps = 200;
 
-int stepDelay; // tiempo de parada para controlar la velocidad
+int stepDelay = 100; // tiempo de parada para controlar la velocidad
 
 boolean pos_1 = false;
 boolean pos_2 = false;
@@ -57,9 +57,9 @@ void loop()
 			{
 				digitalWrite(Y_DIR_PIN, HIGH);
 				digitalWrite(Y_STEP_PIN, LOW);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				digitalWrite(Y_STEP_PIN, HIGH);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				final_carrera_1 = digitalRead(FIN_CARRERA_1);
 			}
 			primer_arranque = false;
@@ -79,9 +79,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, HIGH);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}
@@ -95,9 +95,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, HIGH);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}
@@ -109,9 +109,9 @@ void loop()
 			{
 				digitalWrite(Y_DIR_PIN, HIGH);
 				digitalWrite(Y_STEP_PIN, LOW);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				digitalWrite(Y_STEP_PIN, HIGH);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				final_carrera_1 = digitalRead(FIN_CARRERA_1);
 			}
 			final_carrera_1 = digitalRead(FIN_CARRERA_1);
@@ -139,9 +139,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, LOW);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}				
@@ -152,9 +152,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, LOW);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						final_carrera_2 = digitalRead(FIN_CARRERA_2);
 					}
 			}
@@ -167,9 +167,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, HIGH);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}
@@ -181,9 +181,9 @@ void loop()
 				{
 					digitalWrite(Y_DIR_PIN, HIGH);
 					digitalWrite(Y_STEP_PIN, LOW);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 					digitalWrite(Y_STEP_PIN, HIGH);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 					final_carrera_2 = digitalRead(FIN_CARRERA_2);
 				}
 				// si estamos aquí es porque hemos llegado al final de carrera y tenemos que avanzar para retroceder buscando el final de carrera otra vez.
@@ -191,9 +191,9 @@ void loop()
 				{
 					digitalWrite(Y_DIR_PIN, HIGH);
 					digitalWrite(Y_STEP_PIN, LOW);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 					digitalWrite(Y_STEP_PIN, HIGH);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 				}
 				delay(100);
 				final_carrera_2 = digitalRead(FIN_CARRERA_2);
@@ -201,9 +201,9 @@ void loop()
 				{
 					digitalWrite(Y_DIR_PIN, LOW);
 					digitalWrite(Y_STEP_PIN, LOW);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 					digitalWrite(Y_STEP_PIN, HIGH);
-					delayMicroseconds(250);
+					delayMicroseconds(stepDelay);
 					final_carrera_2 = digitalRead(FIN_CARRERA_2);
 				}
 			}
@@ -231,9 +231,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, LOW);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}
@@ -247,9 +247,9 @@ void loop()
 					{
 						digitalWrite(Y_DIR_PIN, LOW);
 						digitalWrite(Y_STEP_PIN, LOW);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 						digitalWrite(Y_STEP_PIN, HIGH);
-						delayMicroseconds(250);
+						delayMicroseconds(stepDelay);
 					}
 					else break;
 				}	
@@ -261,9 +261,9 @@ void loop()
 			{
 				digitalWrite(Y_DIR_PIN, LOW);
 				digitalWrite(Y_STEP_PIN, LOW);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				digitalWrite(Y_STEP_PIN, HIGH);
-				delayMicroseconds(250);
+				delayMicroseconds(stepDelay);
 				final_carrera_3 = digitalRead(FIN_CARRERA_3);
 			}
 			final_carrera_3 = digitalRead(FIN_CARRERA_3);
