@@ -8,7 +8,8 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication, QLabel
 labelText = "elegir led"
 ser = serial.Serial()
 #ser.port = "COM32"
-ser.baudrate = "9600"
+ser.baudrate = "115200"
+
 
 def scan_serial():
 
@@ -16,7 +17,7 @@ def scan_serial():
     for i in range(1, 50):
         try:
             #-- Abrir puerto serie
-            s = serial.Serial("COM"+str(i), 9600, timeout = 3)
+            s = serial.Serial("COM"+str(i), 115200, timeout = 3)
 
             #comprobamos que el dispositivo es el que buscamos
             try:
@@ -115,6 +116,7 @@ class Example(QMainWindow):
             ex.label_1.setText("Error al conectar puerto Serie")
             ser.close()
             ex.con_serie.setText("Conectar")
+
         
     def buttonClicked(self):
         try:
@@ -126,33 +128,42 @@ class Example(QMainWindow):
                 labelText = "situación actual led: 1"
                 ser.write(b'1')
                 ex.label_1.setText(labelText)
-     
+                ex.led1.setEnabled(False)
+                ex.led2.setEnabled(True)
+                ex.led3.setEnabled(True)
+                
             elif sender.text()== "led 2":
                 labelText = "situación actual led: 2"
                 ser.write(b'2')
                 ex.label_1.setText(labelText)
-                
+                ex.led1.setEnabled(True)
+                ex.led2.setEnabled(False)
+                ex.led3.setEnabled(True)
+
             else: 
                 labelText = "situación actual led: 3"
                 ser.write(b'3')
                 ex.label_1.setText(labelText)
-                
-            recibo = ser.readline()
-            
-            if str (recibo[0]) == '49':
-                ex.led1.setEnabled(False)
-                ex.led2.setEnabled(True)
-                ex.led3.setEnabled(True)
-            elif str (recibo[0]) == '50':
-                ex.led1.setEnabled(True)
-                ex.led2.setEnabled(False)
-                ex.led3.setEnabled(True)
-            elif str (recibo[0]) == '51':
                 ex.led1.setEnabled(True)
                 ex.led2.setEnabled(True)
                 ex.led3.setEnabled(False)
-                
-
+            """            
+            ser.flushInput()
+            recib = ser.read()
+            if str (recib) == '49':
+                ex.led1.setEnabled(False)
+                ex.led2.setEnabled(True)
+                ex.led3.setEnabled(True)
+            elif str (recib) == '50':
+                ex.led1.setEnabled(True)
+                ex.led2.setEnabled(False)
+                ex.led3.setEnabled(True)
+            elif str (recib) == '51':
+                ex.led1.setEnabled(True)
+                ex.led2.setEnabled(True)
+                ex.led3.setEnabled(False)
+            """  
+            
         except serial.SerialException:
 
             ex.label_1.setText("Error al conectar puerto Serie")

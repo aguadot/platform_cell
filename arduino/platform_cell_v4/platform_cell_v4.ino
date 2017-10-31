@@ -1,9 +1,9 @@
-#define Y_DIR_PIN 61 // poner número del pin de dirección
-#define Y_STEP_PIN 60 // poner número de pin de conexión al motor
-#define Y_ENABLE_PIN 56 // poner número de pin de poner en marcha 
-#define FIN_CARRERA_1 3 // poner número de pin de final de carrera 1
-#define FIN_CARRERA_2 2 // poner número de pin de final de carrera 2
-#define FIN_CARRERA_3 14 // poner número de pin de final de carrera 3
+#define Y_DIR_PIN 61 // poner nï¿½mero del pin de direcciï¿½n
+#define Y_STEP_PIN 60 // poner nï¿½mero de pin de conexiï¿½n al motor
+#define Y_ENABLE_PIN 56 // poner nï¿½mero de pin de poner en marcha 
+#define FIN_CARRERA_1 3 // poner nï¿½mero de pin de final de carrera 1
+#define FIN_CARRERA_2 2 // poner nï¿½mero de pin de final de carrera 2
+#define FIN_CARRERA_3 14 // poner nï¿½mero de pin de final de carrera 3
 
 const int steps = 200;
 
@@ -34,7 +34,7 @@ void setup()
 	pinMode(FIN_CARRERA_2, INPUT_PULLUP);
 	pinMode(FIN_CARRERA_3, INPUT_PULLUP);
 	
-	Serial.begin(9600);
+	Serial.begin(115200);
 
 }
 
@@ -50,7 +50,7 @@ void loop()
 	{
 		int option = Serial.read();
 		
-		if (primer_arranque == true) // cuando encendemos el programa nos vamos a la posicion del final de carrera nº1
+		if (primer_arranque == true) // cuando encendemos el programa nos vamos a la posicion del final de carrera nï¿½1
 		{
 			final_carrera_1 = digitalRead(FIN_CARRERA_1);
 			while (final_carrera_1 == 1) // vamos a ir hasta la posicion del led 1
@@ -68,9 +68,9 @@ void loop()
 			delay (500);
 		}
 		
-		if (option == '1') // poner el led 1 en posición
+		if (option == '1') // poner el led 1 en posiciï¿½n
 		{
-			if ((pos_1 == false) && (pos_2 == true)) // retroceder hasta pos 1 desde pos 2
+		  if ((pos_1 == false) && (pos_2 == true)) // retroceder hasta pos 1 desde pos 2
 			{
 				for (int x=0; x<6400; x++)
 				{
@@ -102,7 +102,7 @@ void loop()
 					else break;
 				}
 			}
-			// Si no hemos llegado al final de carrera nos vamos hasta él
+			// Si no hemos llegado al final de carrera nos vamos hasta ï¿½l
 			delay (100);
 			final_carrera_1 = digitalRead(FIN_CARRERA_1);
 			while ((final_carrera_1 == 1) && (pos_1 == false))
@@ -128,9 +128,9 @@ void loop()
 			}
 		}
 		
-		else if (option == '2') // poner el led 2 en posición
+		else if (option == '2') // poner el led 2 en posiciï¿½n
 		{
-			if ((pos_2 == false) && (pos_1 == true)) // avanzar hasta pos 2 porque está en la pos 1
+			if ((pos_2 == false) && (pos_1 == true)) // avanzar hasta pos 2 porque estï¿½ en la pos 1
 			{	
 				for (int x=0; x<6400; x++)
 				{
@@ -145,7 +145,7 @@ void loop()
 					}
 					else break;
 				}				
-				// Si no hemos llegado al final de carrera nos vamos hasta él
+				// Si no hemos llegado al final de carrera nos vamos hasta ï¿½l
 				delay(100);
 				final_carrera_2 = digitalRead(FIN_CARRERA_2);
 				while ((final_carrera_2 == 1) && (pos_2 == false))
@@ -158,9 +158,9 @@ void loop()
 						final_carrera_2 = digitalRead(FIN_CARRERA_2);
 					}
 			}
-			else if ((pos_2 == false) && (pos_3 == true)) // retroceder hasta pos 2 porque está en la pos 3	
-			{											  // Como se utiliza un final de carrera de efecto hall al volver de la posición 3 hacia la 2 tendremos que pasar el final de carrera 
-				for (int x=0; x<6400; x++)				  // y luego volver hacia él para que la posición quede centrada como cuando viene desde la pos 1	
+			else if ((pos_2 == false) && (pos_3 == true)) // retroceder hasta pos 2 porque estï¿½ en la pos 3	
+			{											  // Como se utiliza un final de carrera de efecto hall al volver de la posiciï¿½n 3 hacia la 2 tendremos que pasar el final de carrera 
+				for (int x=0; x<6400; x++)				  // y luego volver hacia ï¿½l para que la posiciï¿½n quede centrada como cuando viene desde la pos 1	
 				{
 					final_carrera_2 = digitalRead(FIN_CARRERA_2);
 					if (final_carrera_2 == 1)
@@ -174,7 +174,7 @@ void loop()
 					else break;
 				}
 				
-				// Si no hemos llegado al final de carrera nos vamos hasta él 
+				// Si no hemos llegado al final de carrera nos vamos hasta ï¿½l 
 				delay(100);
 				final_carrera_2 = digitalRead(FIN_CARRERA_2);
 				while ((final_carrera_2 == 1) && (pos_2 == false))
@@ -186,7 +186,7 @@ void loop()
 					delayMicroseconds(stepDelay);
 					final_carrera_2 = digitalRead(FIN_CARRERA_2);
 				}
-				// si estamos aquí es porque hemos llegado al final de carrera y tenemos que avanzar para retroceder buscando el final de carrera otra vez.
+				// si estamos aquï¿½ es porque hemos llegado al final de carrera y tenemos que avanzar para retroceder buscando el final de carrera otra vez.
 				for (int x=0; x<3200; x++)				  
 				{
 					digitalWrite(Y_DIR_PIN, HIGH);
@@ -220,7 +220,7 @@ void loop()
 				Serial.println("error_2");
 			}
 		}
-		else if (option == '3') // poner el led 3 en posición
+		else if (option == '3') // poner el led 3 en posiciï¿½n
 		{
 			if ((pos_3 == false) && (pos_1 == true))// avanzar hasta pos 3 desde pos 1
 			{
@@ -254,7 +254,7 @@ void loop()
 					else break;
 				}	
 			}
-			// Si no hemos llegado al final de carrera nos vamos hasta él
+			// Si no hemos llegado al final de carrera nos vamos hasta ï¿½l
 			delay(100);
 			final_carrera_3 = digitalRead(FIN_CARRERA_3);
 			while ((final_carrera_3 == 1) && (pos_3 == false))
