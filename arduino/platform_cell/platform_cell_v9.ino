@@ -89,29 +89,29 @@ void loop()
 void autofocus()
 {
 
-	// para las poleas de 20 Y 20 dientes: 400 es una vuelta completa del micrometro y 1 vueltas del motor. trabajando a pasos completos, 16 micropasos por paso.
-	
-	for (int x=0; x<= 400; x++)
-	{
-		mover_enfoque_continuo_abajo();
-	}
-	delay(1000);
-	for (int x = 0; x<= 800; x++)
-	{
-		mover_enfoque_continuo_arriba();
-		// enviamos un disparo a la camara para que tome el dato y esperamos el tiempo que tarda en tomarla hay que preguntar a Iván
-		digitalWrite(TRIGGER_CAMARA, HIGH);
-		delay(1000);
-		digitalWrite(TRIGGER_CAMARA, LOW);
-		delay(1000);
-	}
-	for (int x = 0; x<= 400; x++)
-	{
-		mover_enfoque_continuo_abajo();
-	}
-	// volvemos a la posición inicial
-	delay(1000);
-
+	//// para las poleas de 20 Y 20 dientes: 400 es una vuelta completa del micrometro y 1 vueltas del motor. trabajando a pasos completos, 16 micropasos por paso.
+	//
+	//for (int x=0; x<= 400; x++)
+	//{
+		//mover_enfoque_continuo_abajo();
+	//}
+	//delay(1000);
+	//for (int x = 0; x<= 800; x++)
+	//{
+		//mover_enfoque_continuo_arriba();
+		//// enviamos un disparo a la camara para que tome el dato y esperamos el tiempo que tarda en tomarla hay que preguntar a Iván
+		//digitalWrite(TRIGGER_CAMARA, HIGH);
+		//delay(1000);
+		//digitalWrite(TRIGGER_CAMARA, LOW);
+		//delay(1000);
+	//}
+	//for (int x = 0; x<= 400; x++)
+	//{
+		//mover_enfoque_continuo_abajo();
+	//}
+	//// volvemos a la posición inicial
+	//delay(1000);
+//
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	// para las poleas de 20 Y 20 dientes: 800 es una vuelta completa del micrometro y 2 vueltas del motor. trabajando a pasos completos, 8 micropasos por paso.
@@ -139,29 +139,29 @@ void autofocus()
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
-	// para las poleas de 44 Y 32 dientes: 550 es una vuelta completa del micrometro y 1,375 vueltas del motor. trabajando a pasos completos, 16 micropasos por paso.
+	 para las poleas de 44 Y 32 dientes: 550 es una vuelta completa del micrometro y 1,375 vueltas del motor. trabajando a pasos completos, 16 micropasos por paso.
 	
 	
-	//for (int x=0; x<= 550; x++) // bajamos una vuelta desde el centro ( el centro se posiciona a mano actualmente)
-	//{
-		//mover_enfoque_continuo_abajo();
-	//}
-	//delay(1000);
-	//for (int x = 0; x<= 1100; x++) // subimos la vuelta que hemos bajado y 
-	//{
-		//mover_enfoque_continuo_arriba();
-		//// enviamos un disparo a la camara para que tome el dato y esperamos el tiempo que tarda en tomarla hay que preguntar a Iván
-		//delay(500);
-	//}
-	//for (int x = 0; x<= 550; x++)
-	//{
-		//mover_enfoque_continuo_abajo();
-	//}
-	//
-	//// volvemos a la posición inicial
-	//delay(1000);
+	for (int x=0; x<= 550; x++) // bajamos una vuelta desde el centro ( el centro se posiciona a mano actualmente)
+	{
+		mover_enfoque_continuo_abajo();
+	}
+	delay(1000);
+	for (int x = 0; x<= 1100; x++) // subimos la vuelta que hemos bajado y 
+	{
+		mover_enfoque_continuo_arriba();
+		// enviamos un disparo a la camara para que tome el dato y esperamos el tiempo que tarda en tomarla hay que preguntar a Iván
+		delay(500);
+	}
+	for (int x = 0; x<= 550; x++)
+	{
+		mover_enfoque_continuo_abajo();
+	}
+	
+	// volvemos a la posición inicial
+	delay(1000);
 
-//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	// para las poleas de 44 Y 32 dientes: 1100 es una vuelta completa del micrometro y 2,75 vueltas del motor trabajando a 1/2 pasos, 8 micropasos por paso 
 	
